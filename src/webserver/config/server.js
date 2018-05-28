@@ -1,3 +1,4 @@
 module.exports = {
-  port:process.env.PORT,
+  port: process.env.PORT,
+  logLevel: process.env.LOGLEVEL,
 }

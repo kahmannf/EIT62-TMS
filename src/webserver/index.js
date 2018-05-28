@@ -11,5 +11,5 @@ const app = express();
 app.use(routes);
 
 app.listen(config.server.port, () => {
-  logger.log('Server listening on ' + config.server.port);
+  logger.log('Server listening on ' + config.server.port, 0);
 });
