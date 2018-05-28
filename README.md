@@ -8,3 +8,4 @@
 - ein Ticket soll einen änderbaren Bearbeiter und Status haben
 - es sollen Kommentare zu Tickets erfasst werden können
 - man soll alle Tickets in einer filterbaren (Status, eventuell Textfilter) Liste ansehen können
+
