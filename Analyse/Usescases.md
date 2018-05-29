@@ -13,6 +13,9 @@
 |8|Benutzer|möchte ich ein Ticket bearbeiten|nein|
 |8.1|Benutzer|möchte ich den Bearbeiter eines Tickets ändern|nein|
 |8.2|Benutzer|möchte ich den Status eines Tickets ändern|nein|
-|8.3|Benutzer|möchte ist einen Kommentar zu einem Ticket hinzufügen|nein|
+|8.3|Benutzer|möchte ich einen Kommentar zu einem Ticket hinzufügen|nein|
+|8.3.1|Benutzer|möchte ich einen Kommentar Benutzer/Tickets referenzieren|ja|
 |9|Benutzer|möchte ich Tickets auf das Projekt-Scrum/Kanban-Board schieben|ja|
 |9.1|Benutzer|möchte ich Tickets auf dem Board verschieben|ja|
+|10|Benutzer|möchte ich eine Statistik/Dashboard über ein Projekt sehen|ja|
+|11|Benutzer|möchte ich Benachrichtigungen über (wichtige) Änderungen/Eereignisse bekommen|ja|
