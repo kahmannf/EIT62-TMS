@@ -24,8 +24,8 @@ CREATE TABLE Comment
 CREATE TABLE Status
 (
   ID INTEGER NOT NULL PRIMARY KEY,
-  Farbe TEXT NOT NULL,
-  Description TEXT NOT NULL
+  Color TEXT NOT NULL,
+  Description TEXT
 );
 
 CREATE TABLE Ticket 
@@ -33,7 +33,7 @@ CREATE TABLE Ticket
   ID INTEGER NOT NULL PRIMARY KEY,
   Timestamp TEXT NOT NULL,
   Userstory TEXT NOT NULL,
-  Akzeptanzkriterien TEXT,
+  AcceptanceCriteria TEXT NOT NULL,
   Titel TEXT NOT NULL,
   Creater INTEGER NOT NULL
   IDProjeckt INTEGER NOT NULL;
@@ -57,4 +57,5 @@ CREATE TABLE TicketEditor
 (
   IDUser INTEGER NOT NULL PRIMARY KEY,
   IDTicket INTEGER NOT NULL PRIMARY KEY
+  Timestamp TEXT NOT NULL
 );
