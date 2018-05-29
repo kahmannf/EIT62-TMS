@@ -34,7 +34,7 @@ CREATE TABLE Ticket
   Timestamp TEXT NOT NULL,
   Userstory TEXT NOT NULL,
   AcceptanceCriteria TEXT NOT NULL,
-  Titel TEXT NOT NULL,
+  Title TEXT NOT NULL,
   Creater INTEGER NOT NULL,
   IDProjeckt INTEGER NOT NULL,
   IDStatus INTEGER NOT NULL
