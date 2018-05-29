@@ -16,9 +16,9 @@ CREATE TABLE Project
 CREATE TABLE Comment 
 (
   ID INTEGER NOT NULL PRIMARY KEY,
-  Timestamp TEXT,
+  Timestamp TEXT NOT NULL,
   Text TEXT,
-  IDTicket INTEGER;
+  IDTicket INTEGER NOT NULL
 );
 
 CREATE TABLE Status
@@ -35,9 +35,9 @@ CREATE TABLE Ticket
   Userstory TEXT NOT NULL,
   AcceptanceCriteria TEXT NOT NULL,
   Titel TEXT NOT NULL,
-  Creater INTEGER NOT NULL
-  IDProjeckt INTEGER NOT NULL;
-  IDStatus INTEGER NOT NULL;
+  Creater INTEGER NOT NULL,
+  IDProjeckt INTEGER NOT NULL,
+  IDStatus INTEGER NOT NULL
 );
 
 --Hilfstabellen
