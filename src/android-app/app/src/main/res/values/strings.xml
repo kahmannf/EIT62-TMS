@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">tms-android-app</string>
+    <string name="LoginButton">Login</string>
+    <string name="LoginUser">Benutzername</string>
+    <string name="LoginPasswort">Passwort</string>
+    <string name="LoginButtonAnmeldung">Anmelden</string>
 </resources>
