@@ -12,5 +12,7 @@ android:
 
     # The SDK version used to compile your project
     - android-26
+before_install:
+ - chmod +x ./src/android-app/gradlew
 script:
   - ./src/android-app/gradlew build
