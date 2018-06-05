@@ -12,6 +12,10 @@ const app = express();
 // welches in der 'body'-Eigenschaft des requests gespeicher wird
 app.use(bodyparser.json());
 
+app.use((req, res, next) => {
+  logger.log(`Incomming ${req.method} on ${req.url}`, 10000);
+})
+
 // Leitet alle eingehenden request an das Router-Object aus routes/index.js weiter
 app.use(routes);
 
