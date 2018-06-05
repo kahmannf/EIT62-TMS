@@ -1,0 +1,7 @@
+rm -rf /home/pi/webserver
+
+cp -rf ./webserver /home/pi/webserver
+
+rm /home/pi/webserver/package-lock.json
+
+npm i
