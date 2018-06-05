@@ -18,4 +18,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="activity_create_ticket_TicketName">Ticket Name</string>
+    <string name="activity_create_ticket_Description">Beschreibung</string>
+    <string name="activity_create_ticket_Editor">Bearbeiter</string>
 </resources>
