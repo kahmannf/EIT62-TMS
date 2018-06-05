@@ -1,4 +1,6 @@
 # EIT62-TMS
+[![Build Status](https://travis-ci.org/kahmannf/EIT62-TMS.svg?branch=master)](https://travis-ci.org/kahmannf/EIT62-TMS)
+
 ## Schulprojekt zur Entwicklung eines Ticket-Managment-Systems
 
 ## Funktionsumfang
