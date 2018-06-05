@@ -44,17 +44,17 @@ public class ProjectsApi {
     }
 
     /**
-     * Build call for projectsMineGet
+     * Build call for secureProjectsMineGet
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call projectsMineGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secureProjectsMineGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/projects/mine";
+        String localVarPath = "/secure/projects/mine";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -92,10 +92,10 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call projectsMineGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secureProjectsMineGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = projectsMineGetCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureProjectsMineGetCall(progressListener, progressRequestListener);
         return call;
 
     }
@@ -106,8 +106,8 @@ public class ProjectsApi {
      * @return List&lt;Project&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Project> projectsMineGet() throws ApiException {
-        ApiResponse<List<Project>> resp = projectsMineGetWithHttpInfo();
+    public List<Project> secureProjectsMineGet() throws ApiException {
+        ApiResponse<List<Project>> resp = secureProjectsMineGetWithHttpInfo();
         return resp.getData();
     }
 
@@ -117,8 +117,8 @@ public class ProjectsApi {
      * @return ApiResponse&lt;List&lt;Project&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Project>> projectsMineGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = projectsMineGetValidateBeforeCall(null, null);
+    public ApiResponse<List<Project>> secureProjectsMineGetWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = secureProjectsMineGetValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<List<Project>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -130,7 +130,7 @@ public class ProjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call projectsMineGetAsync(final ApiCallback<List<Project>> callback) throws ApiException {
+    public com.squareup.okhttp.Call secureProjectsMineGetAsync(final ApiCallback<List<Project>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -151,13 +151,13 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = projectsMineGetValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureProjectsMineGetValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Project>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for projectsProjectidAddUserUseridPost
+     * Build call for secureProjectsProjectidAddUserUseridPost
      * @param projectid id of the project to add the user to (required)
      * @param userid id of the user to add to the project (required)
      * @param progressListener Progress listener
@@ -165,11 +165,11 @@ public class ProjectsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call projectsProjectidAddUserUseridPostCall(Integer projectid, Integer userid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secureProjectsProjectidAddUserUseridPostCall(Integer projectid, Integer userid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/projects/{projectid}/add-user/{userid}"
+        String localVarPath = "/secure/projects/{projectid}/add-user/{userid}"
             .replaceAll("\\{" + "projectid" + "\\}", apiClient.escapeString(projectid.toString()))
             .replaceAll("\\{" + "userid" + "\\}", apiClient.escapeString(userid.toString()));
 
@@ -209,20 +209,20 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call projectsProjectidAddUserUseridPostValidateBeforeCall(Integer projectid, Integer userid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secureProjectsProjectidAddUserUseridPostValidateBeforeCall(Integer projectid, Integer userid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'projectid' is set
         if (projectid == null) {
-            throw new ApiException("Missing the required parameter 'projectid' when calling projectsProjectidAddUserUseridPost(Async)");
+            throw new ApiException("Missing the required parameter 'projectid' when calling secureProjectsProjectidAddUserUseridPost(Async)");
         }
         
         // verify the required parameter 'userid' is set
         if (userid == null) {
-            throw new ApiException("Missing the required parameter 'userid' when calling projectsProjectidAddUserUseridPost(Async)");
+            throw new ApiException("Missing the required parameter 'userid' when calling secureProjectsProjectidAddUserUseridPost(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = projectsProjectidAddUserUseridPostCall(projectid, userid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureProjectsProjectidAddUserUseridPostCall(projectid, userid, progressListener, progressRequestListener);
         return call;
 
     }
@@ -234,8 +234,8 @@ public class ProjectsApi {
      * @param userid id of the user to add to the project (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void projectsProjectidAddUserUseridPost(Integer projectid, Integer userid) throws ApiException {
-        projectsProjectidAddUserUseridPostWithHttpInfo(projectid, userid);
+    public void secureProjectsProjectidAddUserUseridPost(Integer projectid, Integer userid) throws ApiException {
+        secureProjectsProjectidAddUserUseridPostWithHttpInfo(projectid, userid);
     }
 
     /**
@@ -246,8 +246,8 @@ public class ProjectsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> projectsProjectidAddUserUseridPostWithHttpInfo(Integer projectid, Integer userid) throws ApiException {
-        com.squareup.okhttp.Call call = projectsProjectidAddUserUseridPostValidateBeforeCall(projectid, userid, null, null);
+    public ApiResponse<Void> secureProjectsProjectidAddUserUseridPostWithHttpInfo(Integer projectid, Integer userid) throws ApiException {
+        com.squareup.okhttp.Call call = secureProjectsProjectidAddUserUseridPostValidateBeforeCall(projectid, userid, null, null);
         return apiClient.execute(call);
     }
 
@@ -260,7 +260,7 @@ public class ProjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call projectsProjectidAddUserUseridPostAsync(Integer projectid, Integer userid, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call secureProjectsProjectidAddUserUseridPostAsync(Integer projectid, Integer userid, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -281,23 +281,23 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = projectsProjectidAddUserUseridPostValidateBeforeCall(projectid, userid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureProjectsProjectidAddUserUseridPostValidateBeforeCall(projectid, userid, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
-     * Build call for projectsSavePost
+     * Build call for secureProjectsSavePost
      * @param project  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call projectsSavePostCall(Project project, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secureProjectsSavePostCall(Project project, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = project;
 
         // create path and map variables
-        String localVarPath = "/projects/save";
+        String localVarPath = "/secure/projects/save";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -335,10 +335,10 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call projectsSavePostValidateBeforeCall(Project project, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secureProjectsSavePostValidateBeforeCall(Project project, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = projectsSavePostCall(project, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureProjectsSavePostCall(project, progressListener, progressRequestListener);
         return call;
 
     }
@@ -349,8 +349,8 @@ public class ProjectsApi {
      * @param project  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void projectsSavePost(Project project) throws ApiException {
-        projectsSavePostWithHttpInfo(project);
+    public void secureProjectsSavePost(Project project) throws ApiException {
+        secureProjectsSavePostWithHttpInfo(project);
     }
 
     /**
@@ -360,8 +360,8 @@ public class ProjectsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> projectsSavePostWithHttpInfo(Project project) throws ApiException {
-        com.squareup.okhttp.Call call = projectsSavePostValidateBeforeCall(project, null, null);
+    public ApiResponse<Void> secureProjectsSavePostWithHttpInfo(Project project) throws ApiException {
+        com.squareup.okhttp.Call call = secureProjectsSavePostValidateBeforeCall(project, null, null);
         return apiClient.execute(call);
     }
 
@@ -373,7 +373,7 @@ public class ProjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call projectsSavePostAsync(Project project, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call secureProjectsSavePostAsync(Project project, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -394,7 +394,7 @@ public class ProjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = projectsSavePostValidateBeforeCall(project, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureProjectsSavePostValidateBeforeCall(project, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

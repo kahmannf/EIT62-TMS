@@ -4,16 +4,16 @@ All URIs are relative to *https://virtserver.swaggerhub.com/eit62-tms/TMS-Webser
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**projectsProjectidNewTicketPost**](TicketsApi.md#projectsProjectidNewTicketPost) | **POST** /projects/{projectid}/new-ticket | create a new ticket assciated to the project
-[**projectsProjectidTicketsGet**](TicketsApi.md#projectsProjectidTicketsGet) | **GET** /projects/{projectid}/tickets | returns a paging-object containing tickets
-[**ticketsTicketidAddCommentPost**](TicketsApi.md#ticketsTicketidAddCommentPost) | **POST** /tickets/{ticketid}/add-comment | adds a comment to a ticket
-[**ticketsTicketidGet**](TicketsApi.md#ticketsTicketidGet) | **GET** /tickets/{ticketid} | return a ticket by id
-[**ticketsUpdatePost**](TicketsApi.md#ticketsUpdatePost) | **POST** /tickets/update | updates a existing ticket
+[**secureProjectsProjectidNewTicketPost**](TicketsApi.md#secureProjectsProjectidNewTicketPost) | **POST** /secure/projects/{projectid}/new-ticket | create a new ticket assciated to the project
+[**secureProjectsProjectidTicketsGet**](TicketsApi.md#secureProjectsProjectidTicketsGet) | **GET** /secure/projects/{projectid}/tickets | returns a paging-object containing tickets
+[**secureTicketsTicketidAddCommentPost**](TicketsApi.md#secureTicketsTicketidAddCommentPost) | **POST** /secure/tickets/{ticketid}/add-comment | adds a comment to a ticket
+[**secureTicketsTicketidGet**](TicketsApi.md#secureTicketsTicketidGet) | **GET** /secure/tickets/{ticketid} | return a ticket by id
+[**secureTicketsUpdatePost**](TicketsApi.md#secureTicketsUpdatePost) | **POST** /secure/tickets/update | updates a existing ticket
 
 
-<a name="projectsProjectidNewTicketPost"></a>
-# **projectsProjectidNewTicketPost**
-> projectsProjectidNewTicketPost(projectid, ticket)
+<a name="secureProjectsProjectidNewTicketPost"></a>
+# **secureProjectsProjectidNewTicketPost**
+> secureProjectsProjectidNewTicketPost(projectid, ticket)
 
 create a new ticket assciated to the project
 
@@ -28,9 +28,9 @@ TicketsApi apiInstance = new TicketsApi();
 Integer projectid = 56; // Integer | id of the project
 Ticket ticket = new Ticket(); // Ticket | 
 try {
-    apiInstance.projectsProjectidNewTicketPost(projectid, ticket);
+    apiInstance.secureProjectsProjectidNewTicketPost(projectid, ticket);
 } catch (ApiException e) {
-    System.err.println("Exception when calling TicketsApi#projectsProjectidNewTicketPost");
+    System.err.println("Exception when calling TicketsApi#secureProjectsProjectidNewTicketPost");
     e.printStackTrace();
 }
 ```
@@ -55,9 +55,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="projectsProjectidTicketsGet"></a>
-# **projectsProjectidTicketsGet**
-> TicketPage projectsProjectidTicketsGet(projectid, offset, limit)
+<a name="secureProjectsProjectidTicketsGet"></a>
+# **secureProjectsProjectidTicketsGet**
+> TicketPage secureProjectsProjectidTicketsGet(projectid, offset, limit)
 
 returns a paging-object containing tickets
 
@@ -73,10 +73,10 @@ Integer projectid = 56; // Integer | id of the project
 Integer offset = 0; // Integer | amount of tickets to be skipped
 Integer limit = 20; // Integer | amount of tickets that should be returned
 try {
-    TicketPage result = apiInstance.projectsProjectidTicketsGet(projectid, offset, limit);
+    TicketPage result = apiInstance.secureProjectsProjectidTicketsGet(projectid, offset, limit);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling TicketsApi#projectsProjectidTicketsGet");
+    System.err.println("Exception when calling TicketsApi#secureProjectsProjectidTicketsGet");
     e.printStackTrace();
 }
 ```
@@ -102,9 +102,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="ticketsTicketidAddCommentPost"></a>
-# **ticketsTicketidAddCommentPost**
-> ticketsTicketidAddCommentPost(ticketid, comment)
+<a name="secureTicketsTicketidAddCommentPost"></a>
+# **secureTicketsTicketidAddCommentPost**
+> secureTicketsTicketidAddCommentPost(ticketid, comment)
 
 adds a comment to a ticket
 
@@ -119,9 +119,9 @@ TicketsApi apiInstance = new TicketsApi();
 Integer ticketid = 56; // Integer | 
 Comment comment = new Comment(); // Comment | 
 try {
-    apiInstance.ticketsTicketidAddCommentPost(ticketid, comment);
+    apiInstance.secureTicketsTicketidAddCommentPost(ticketid, comment);
 } catch (ApiException e) {
-    System.err.println("Exception when calling TicketsApi#ticketsTicketidAddCommentPost");
+    System.err.println("Exception when calling TicketsApi#secureTicketsTicketidAddCommentPost");
     e.printStackTrace();
 }
 ```
@@ -146,9 +146,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="ticketsTicketidGet"></a>
-# **ticketsTicketidGet**
-> Ticket ticketsTicketidGet(ticketid)
+<a name="secureTicketsTicketidGet"></a>
+# **secureTicketsTicketidGet**
+> Ticket secureTicketsTicketidGet(ticketid)
 
 return a ticket by id
 
@@ -162,10 +162,10 @@ return a ticket by id
 TicketsApi apiInstance = new TicketsApi();
 Integer ticketid = 56; // Integer | 
 try {
-    Ticket result = apiInstance.ticketsTicketidGet(ticketid);
+    Ticket result = apiInstance.secureTicketsTicketidGet(ticketid);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling TicketsApi#ticketsTicketidGet");
+    System.err.println("Exception when calling TicketsApi#secureTicketsTicketidGet");
     e.printStackTrace();
 }
 ```
@@ -189,9 +189,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="ticketsUpdatePost"></a>
-# **ticketsUpdatePost**
-> ticketsUpdatePost(ticket)
+<a name="secureTicketsUpdatePost"></a>
+# **secureTicketsUpdatePost**
+> secureTicketsUpdatePost(ticket)
 
 updates a existing ticket
 
@@ -205,9 +205,9 @@ updates a existing ticket
 TicketsApi apiInstance = new TicketsApi();
 Ticket ticket = new Ticket(); // Ticket | 
 try {
-    apiInstance.ticketsUpdatePost(ticket);
+    apiInstance.secureTicketsUpdatePost(ticket);
 } catch (ApiException e) {
-    System.err.println("Exception when calling TicketsApi#ticketsUpdatePost");
+    System.err.println("Exception when calling TicketsApi#secureTicketsUpdatePost");
     e.printStackTrace();
 }
 ```

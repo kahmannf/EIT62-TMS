@@ -4,4 +4,8 @@ cp -rf ./webserver /home/pi/webserver
 
 rm /home/pi/webserver/package-lock.json
 
+cd /home/pi/webserver
+
+cp /home/pi/.env .env
+
 npm i

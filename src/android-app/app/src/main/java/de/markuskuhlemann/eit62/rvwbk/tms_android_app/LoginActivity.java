@@ -32,6 +32,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.swagger.client.ApiException;
+import io.swagger.client.api.AuthApi;
+import io.swagger.client.model.*;
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
@@ -306,12 +309,24 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
+
 
             try {
                 // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
+                AuthApi authApi = new AuthApi();
+                Authdata data = new Authdata();
+                data.setPassword(mPassword);
+                data.setUsername(mEmail);
+
+
+                InlineResponse200 response200 = authApi.authLoginPost(data);
+                AuthHandler.getInstance().setAuthData(response200);
+                // TODO: Überleiten zur HauptOberfläche
+
+            }  catch (ApiException e) {
+                if(e.getCode() == 401){
+                    // TODO: TOOAST: Ungültige login Daten
+                }
                 return false;
             }
 

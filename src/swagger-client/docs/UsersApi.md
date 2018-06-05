@@ -4,13 +4,13 @@ All URIs are relative to *https://virtserver.swaggerhub.com/eit62-tms/TMS-Webser
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**usersMeGet**](UsersApi.md#usersMeGet) | **GET** /users/me | get user data for the logged in user
-[**usersSearchGet**](UsersApi.md#usersSearchGet) | **GET** /users/search | searches for a user by name or email
+[**secureUsersMeGet**](UsersApi.md#secureUsersMeGet) | **GET** /secure/users/me | get user data for the logged in user
+[**secureUsersSearchGet**](UsersApi.md#secureUsersSearchGet) | **GET** /secure/users/search | searches for a user by name or email
 
 
-<a name="usersMeGet"></a>
-# **usersMeGet**
-> User usersMeGet()
+<a name="secureUsersMeGet"></a>
+# **secureUsersMeGet**
+> User secureUsersMeGet()
 
 get user data for the logged in user
 
@@ -23,10 +23,10 @@ get user data for the logged in user
 
 UsersApi apiInstance = new UsersApi();
 try {
-    User result = apiInstance.usersMeGet();
+    User result = apiInstance.secureUsersMeGet();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling UsersApi#usersMeGet");
+    System.err.println("Exception when calling UsersApi#secureUsersMeGet");
     e.printStackTrace();
 }
 ```
@@ -47,9 +47,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="usersSearchGet"></a>
-# **usersSearchGet**
-> UserPage usersSearchGet(offset, limit, search)
+<a name="secureUsersSearchGet"></a>
+# **secureUsersSearchGet**
+> UserPage secureUsersSearchGet(offset, limit, search)
 
 searches for a user by name or email
 
@@ -65,10 +65,10 @@ Integer offset = 0; // Integer | amount of users to be skipped
 Integer limit = 20; // Integer | amount of users that should be returned
 String search = "search_example"; // String | a search string that will be machted with the username
 try {
-    UserPage result = apiInstance.usersSearchGet(offset, limit, search);
+    UserPage result = apiInstance.secureUsersSearchGet(offset, limit, search);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling UsersApi#usersSearchGet");
+    System.err.println("Exception when calling UsersApi#secureUsersSearchGet");
     e.printStackTrace();
 }
 ```

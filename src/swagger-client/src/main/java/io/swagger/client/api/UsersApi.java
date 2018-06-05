@@ -45,17 +45,17 @@ public class UsersApi {
     }
 
     /**
-     * Build call for usersMeGet
+     * Build call for secureUsersMeGet
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call usersMeGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secureUsersMeGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/users/me";
+        String localVarPath = "/secure/users/me";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -93,10 +93,10 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call usersMeGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secureUsersMeGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = usersMeGetCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureUsersMeGetCall(progressListener, progressRequestListener);
         return call;
 
     }
@@ -107,8 +107,8 @@ public class UsersApi {
      * @return User
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public User usersMeGet() throws ApiException {
-        ApiResponse<User> resp = usersMeGetWithHttpInfo();
+    public User secureUsersMeGet() throws ApiException {
+        ApiResponse<User> resp = secureUsersMeGetWithHttpInfo();
         return resp.getData();
     }
 
@@ -118,8 +118,8 @@ public class UsersApi {
      * @return ApiResponse&lt;User&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<User> usersMeGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = usersMeGetValidateBeforeCall(null, null);
+    public ApiResponse<User> secureUsersMeGetWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = secureUsersMeGetValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -131,7 +131,7 @@ public class UsersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call usersMeGetAsync(final ApiCallback<User> callback) throws ApiException {
+    public com.squareup.okhttp.Call secureUsersMeGetAsync(final ApiCallback<User> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -152,13 +152,13 @@ public class UsersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = usersMeGetValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureUsersMeGetValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for usersSearchGet
+     * Build call for secureUsersSearchGet
      * @param offset amount of users to be skipped (optional, default to 0)
      * @param limit amount of users that should be returned (optional, default to 20)
      * @param search a search string that will be machted with the username (optional)
@@ -167,11 +167,11 @@ public class UsersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call usersSearchGetCall(Integer offset, Integer limit, String search, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secureUsersSearchGetCall(Integer offset, Integer limit, String search, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/users/search";
+        String localVarPath = "/secure/users/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -215,10 +215,10 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call usersSearchGetValidateBeforeCall(Integer offset, Integer limit, String search, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secureUsersSearchGetValidateBeforeCall(Integer offset, Integer limit, String search, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = usersSearchGetCall(offset, limit, search, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureUsersSearchGetCall(offset, limit, search, progressListener, progressRequestListener);
         return call;
 
     }
@@ -232,8 +232,8 @@ public class UsersApi {
      * @return UserPage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public UserPage usersSearchGet(Integer offset, Integer limit, String search) throws ApiException {
-        ApiResponse<UserPage> resp = usersSearchGetWithHttpInfo(offset, limit, search);
+    public UserPage secureUsersSearchGet(Integer offset, Integer limit, String search) throws ApiException {
+        ApiResponse<UserPage> resp = secureUsersSearchGetWithHttpInfo(offset, limit, search);
         return resp.getData();
     }
 
@@ -246,8 +246,8 @@ public class UsersApi {
      * @return ApiResponse&lt;UserPage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<UserPage> usersSearchGetWithHttpInfo(Integer offset, Integer limit, String search) throws ApiException {
-        com.squareup.okhttp.Call call = usersSearchGetValidateBeforeCall(offset, limit, search, null, null);
+    public ApiResponse<UserPage> secureUsersSearchGetWithHttpInfo(Integer offset, Integer limit, String search) throws ApiException {
+        com.squareup.okhttp.Call call = secureUsersSearchGetValidateBeforeCall(offset, limit, search, null, null);
         Type localVarReturnType = new TypeToken<UserPage>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -262,7 +262,7 @@ public class UsersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call usersSearchGetAsync(Integer offset, Integer limit, String search, final ApiCallback<UserPage> callback) throws ApiException {
+    public com.squareup.okhttp.Call secureUsersSearchGetAsync(Integer offset, Integer limit, String search, final ApiCallback<UserPage> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -283,7 +283,7 @@ public class UsersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = usersSearchGetValidateBeforeCall(offset, limit, search, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureUsersSearchGetValidateBeforeCall(offset, limit, search, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<UserPage>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -4,14 +4,14 @@ All URIs are relative to *https://virtserver.swaggerhub.com/eit62-tms/TMS-Webser
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**projectsMineGet**](ProjectsApi.md#projectsMineGet) | **GET** /projects/mine | returns an array of projects associated to the logged in user
-[**projectsProjectidAddUserUseridPost**](ProjectsApi.md#projectsProjectidAddUserUseridPost) | **POST** /projects/{projectid}/add-user/{userid} | adds a user to a project
-[**projectsSavePost**](ProjectsApi.md#projectsSavePost) | **POST** /projects/save | saves a project. if projectid is 0 or null/undefined, creates a new project
+[**secureProjectsMineGet**](ProjectsApi.md#secureProjectsMineGet) | **GET** /secure/projects/mine | returns an array of projects associated to the logged in user
+[**secureProjectsProjectidAddUserUseridPost**](ProjectsApi.md#secureProjectsProjectidAddUserUseridPost) | **POST** /secure/projects/{projectid}/add-user/{userid} | adds a user to a project
+[**secureProjectsSavePost**](ProjectsApi.md#secureProjectsSavePost) | **POST** /secure/projects/save | saves a project. if projectid is 0 or null/undefined, creates a new project
 
 
-<a name="projectsMineGet"></a>
-# **projectsMineGet**
-> List&lt;Project&gt; projectsMineGet()
+<a name="secureProjectsMineGet"></a>
+# **secureProjectsMineGet**
+> List&lt;Project&gt; secureProjectsMineGet()
 
 returns an array of projects associated to the logged in user
 
@@ -24,10 +24,10 @@ returns an array of projects associated to the logged in user
 
 ProjectsApi apiInstance = new ProjectsApi();
 try {
-    List<Project> result = apiInstance.projectsMineGet();
+    List<Project> result = apiInstance.secureProjectsMineGet();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#projectsMineGet");
+    System.err.println("Exception when calling ProjectsApi#secureProjectsMineGet");
     e.printStackTrace();
 }
 ```
@@ -48,9 +48,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="projectsProjectidAddUserUseridPost"></a>
-# **projectsProjectidAddUserUseridPost**
-> projectsProjectidAddUserUseridPost(projectid, userid)
+<a name="secureProjectsProjectidAddUserUseridPost"></a>
+# **secureProjectsProjectidAddUserUseridPost**
+> secureProjectsProjectidAddUserUseridPost(projectid, userid)
 
 adds a user to a project
 
@@ -65,9 +65,9 @@ ProjectsApi apiInstance = new ProjectsApi();
 Integer projectid = 56; // Integer | id of the project to add the user to
 Integer userid = 56; // Integer | id of the user to add to the project
 try {
-    apiInstance.projectsProjectidAddUserUseridPost(projectid, userid);
+    apiInstance.secureProjectsProjectidAddUserUseridPost(projectid, userid);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#projectsProjectidAddUserUseridPost");
+    System.err.println("Exception when calling ProjectsApi#secureProjectsProjectidAddUserUseridPost");
     e.printStackTrace();
 }
 ```
@@ -92,9 +92,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="projectsSavePost"></a>
-# **projectsSavePost**
-> projectsSavePost(project)
+<a name="secureProjectsSavePost"></a>
+# **secureProjectsSavePost**
+> secureProjectsSavePost(project)
 
 saves a project. if projectid is 0 or null/undefined, creates a new project
 
@@ -108,9 +108,9 @@ saves a project. if projectid is 0 or null/undefined, creates a new project
 ProjectsApi apiInstance = new ProjectsApi();
 Project project = new Project(); // Project | 
 try {
-    apiInstance.projectsSavePost(project);
+    apiInstance.secureProjectsSavePost(project);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#projectsSavePost");
+    System.err.println("Exception when calling ProjectsApi#secureProjectsSavePost");
     e.printStackTrace();
 }
 ```

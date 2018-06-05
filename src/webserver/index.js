@@ -14,6 +14,7 @@ app.use(bodyparser.json());
 
 app.use((req, res, next) => {
   logger.log(`Incomming ${req.method} on ${req.url}`, 10000);
+  next();
 })
 
 // Leitet alle eingehenden request an das Router-Object aus routes/index.js weiter

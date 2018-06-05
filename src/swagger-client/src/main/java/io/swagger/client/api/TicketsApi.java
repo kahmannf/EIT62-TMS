@@ -46,7 +46,7 @@ public class TicketsApi {
     }
 
     /**
-     * Build call for projectsProjectidNewTicketPost
+     * Build call for secureProjectsProjectidNewTicketPost
      * @param projectid id of the project (required)
      * @param ticket  (required)
      * @param progressListener Progress listener
@@ -54,11 +54,11 @@ public class TicketsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call projectsProjectidNewTicketPostCall(Integer projectid, Ticket ticket, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secureProjectsProjectidNewTicketPostCall(Integer projectid, Ticket ticket, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = ticket;
 
         // create path and map variables
-        String localVarPath = "/projects/{projectid}/new-ticket"
+        String localVarPath = "/secure/projects/{projectid}/new-ticket"
             .replaceAll("\\{" + "projectid" + "\\}", apiClient.escapeString(projectid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -97,20 +97,20 @@ public class TicketsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call projectsProjectidNewTicketPostValidateBeforeCall(Integer projectid, Ticket ticket, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secureProjectsProjectidNewTicketPostValidateBeforeCall(Integer projectid, Ticket ticket, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'projectid' is set
         if (projectid == null) {
-            throw new ApiException("Missing the required parameter 'projectid' when calling projectsProjectidNewTicketPost(Async)");
+            throw new ApiException("Missing the required parameter 'projectid' when calling secureProjectsProjectidNewTicketPost(Async)");
         }
         
         // verify the required parameter 'ticket' is set
         if (ticket == null) {
-            throw new ApiException("Missing the required parameter 'ticket' when calling projectsProjectidNewTicketPost(Async)");
+            throw new ApiException("Missing the required parameter 'ticket' when calling secureProjectsProjectidNewTicketPost(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = projectsProjectidNewTicketPostCall(projectid, ticket, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureProjectsProjectidNewTicketPostCall(projectid, ticket, progressListener, progressRequestListener);
         return call;
 
     }
@@ -122,8 +122,8 @@ public class TicketsApi {
      * @param ticket  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void projectsProjectidNewTicketPost(Integer projectid, Ticket ticket) throws ApiException {
-        projectsProjectidNewTicketPostWithHttpInfo(projectid, ticket);
+    public void secureProjectsProjectidNewTicketPost(Integer projectid, Ticket ticket) throws ApiException {
+        secureProjectsProjectidNewTicketPostWithHttpInfo(projectid, ticket);
     }
 
     /**
@@ -134,8 +134,8 @@ public class TicketsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> projectsProjectidNewTicketPostWithHttpInfo(Integer projectid, Ticket ticket) throws ApiException {
-        com.squareup.okhttp.Call call = projectsProjectidNewTicketPostValidateBeforeCall(projectid, ticket, null, null);
+    public ApiResponse<Void> secureProjectsProjectidNewTicketPostWithHttpInfo(Integer projectid, Ticket ticket) throws ApiException {
+        com.squareup.okhttp.Call call = secureProjectsProjectidNewTicketPostValidateBeforeCall(projectid, ticket, null, null);
         return apiClient.execute(call);
     }
 
@@ -148,7 +148,7 @@ public class TicketsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call projectsProjectidNewTicketPostAsync(Integer projectid, Ticket ticket, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call secureProjectsProjectidNewTicketPostAsync(Integer projectid, Ticket ticket, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -169,12 +169,12 @@ public class TicketsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = projectsProjectidNewTicketPostValidateBeforeCall(projectid, ticket, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureProjectsProjectidNewTicketPostValidateBeforeCall(projectid, ticket, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
-     * Build call for projectsProjectidTicketsGet
+     * Build call for secureProjectsProjectidTicketsGet
      * @param projectid id of the project (required)
      * @param offset amount of tickets to be skipped (optional, default to 0)
      * @param limit amount of tickets that should be returned (optional, default to 20)
@@ -183,11 +183,11 @@ public class TicketsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call projectsProjectidTicketsGetCall(Integer projectid, Integer offset, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secureProjectsProjectidTicketsGetCall(Integer projectid, Integer offset, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/projects/{projectid}/tickets"
+        String localVarPath = "/secure/projects/{projectid}/tickets"
             .replaceAll("\\{" + "projectid" + "\\}", apiClient.escapeString(projectid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -230,15 +230,15 @@ public class TicketsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call projectsProjectidTicketsGetValidateBeforeCall(Integer projectid, Integer offset, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secureProjectsProjectidTicketsGetValidateBeforeCall(Integer projectid, Integer offset, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'projectid' is set
         if (projectid == null) {
-            throw new ApiException("Missing the required parameter 'projectid' when calling projectsProjectidTicketsGet(Async)");
+            throw new ApiException("Missing the required parameter 'projectid' when calling secureProjectsProjectidTicketsGet(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = projectsProjectidTicketsGetCall(projectid, offset, limit, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureProjectsProjectidTicketsGetCall(projectid, offset, limit, progressListener, progressRequestListener);
         return call;
 
     }
@@ -252,8 +252,8 @@ public class TicketsApi {
      * @return TicketPage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TicketPage projectsProjectidTicketsGet(Integer projectid, Integer offset, Integer limit) throws ApiException {
-        ApiResponse<TicketPage> resp = projectsProjectidTicketsGetWithHttpInfo(projectid, offset, limit);
+    public TicketPage secureProjectsProjectidTicketsGet(Integer projectid, Integer offset, Integer limit) throws ApiException {
+        ApiResponse<TicketPage> resp = secureProjectsProjectidTicketsGetWithHttpInfo(projectid, offset, limit);
         return resp.getData();
     }
 
@@ -266,8 +266,8 @@ public class TicketsApi {
      * @return ApiResponse&lt;TicketPage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<TicketPage> projectsProjectidTicketsGetWithHttpInfo(Integer projectid, Integer offset, Integer limit) throws ApiException {
-        com.squareup.okhttp.Call call = projectsProjectidTicketsGetValidateBeforeCall(projectid, offset, limit, null, null);
+    public ApiResponse<TicketPage> secureProjectsProjectidTicketsGetWithHttpInfo(Integer projectid, Integer offset, Integer limit) throws ApiException {
+        com.squareup.okhttp.Call call = secureProjectsProjectidTicketsGetValidateBeforeCall(projectid, offset, limit, null, null);
         Type localVarReturnType = new TypeToken<TicketPage>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -282,7 +282,7 @@ public class TicketsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call projectsProjectidTicketsGetAsync(Integer projectid, Integer offset, Integer limit, final ApiCallback<TicketPage> callback) throws ApiException {
+    public com.squareup.okhttp.Call secureProjectsProjectidTicketsGetAsync(Integer projectid, Integer offset, Integer limit, final ApiCallback<TicketPage> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -303,13 +303,13 @@ public class TicketsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = projectsProjectidTicketsGetValidateBeforeCall(projectid, offset, limit, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureProjectsProjectidTicketsGetValidateBeforeCall(projectid, offset, limit, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TicketPage>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for ticketsTicketidAddCommentPost
+     * Build call for secureTicketsTicketidAddCommentPost
      * @param ticketid  (required)
      * @param comment  (required)
      * @param progressListener Progress listener
@@ -317,11 +317,11 @@ public class TicketsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ticketsTicketidAddCommentPostCall(Integer ticketid, Comment comment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secureTicketsTicketidAddCommentPostCall(Integer ticketid, Comment comment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = comment;
 
         // create path and map variables
-        String localVarPath = "/tickets/{ticketid}/add-comment"
+        String localVarPath = "/secure/tickets/{ticketid}/add-comment"
             .replaceAll("\\{" + "ticketid" + "\\}", apiClient.escapeString(ticketid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -360,20 +360,20 @@ public class TicketsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ticketsTicketidAddCommentPostValidateBeforeCall(Integer ticketid, Comment comment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secureTicketsTicketidAddCommentPostValidateBeforeCall(Integer ticketid, Comment comment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ticketid' is set
         if (ticketid == null) {
-            throw new ApiException("Missing the required parameter 'ticketid' when calling ticketsTicketidAddCommentPost(Async)");
+            throw new ApiException("Missing the required parameter 'ticketid' when calling secureTicketsTicketidAddCommentPost(Async)");
         }
         
         // verify the required parameter 'comment' is set
         if (comment == null) {
-            throw new ApiException("Missing the required parameter 'comment' when calling ticketsTicketidAddCommentPost(Async)");
+            throw new ApiException("Missing the required parameter 'comment' when calling secureTicketsTicketidAddCommentPost(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = ticketsTicketidAddCommentPostCall(ticketid, comment, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureTicketsTicketidAddCommentPostCall(ticketid, comment, progressListener, progressRequestListener);
         return call;
 
     }
@@ -385,8 +385,8 @@ public class TicketsApi {
      * @param comment  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void ticketsTicketidAddCommentPost(Integer ticketid, Comment comment) throws ApiException {
-        ticketsTicketidAddCommentPostWithHttpInfo(ticketid, comment);
+    public void secureTicketsTicketidAddCommentPost(Integer ticketid, Comment comment) throws ApiException {
+        secureTicketsTicketidAddCommentPostWithHttpInfo(ticketid, comment);
     }
 
     /**
@@ -397,8 +397,8 @@ public class TicketsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> ticketsTicketidAddCommentPostWithHttpInfo(Integer ticketid, Comment comment) throws ApiException {
-        com.squareup.okhttp.Call call = ticketsTicketidAddCommentPostValidateBeforeCall(ticketid, comment, null, null);
+    public ApiResponse<Void> secureTicketsTicketidAddCommentPostWithHttpInfo(Integer ticketid, Comment comment) throws ApiException {
+        com.squareup.okhttp.Call call = secureTicketsTicketidAddCommentPostValidateBeforeCall(ticketid, comment, null, null);
         return apiClient.execute(call);
     }
 
@@ -411,7 +411,7 @@ public class TicketsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ticketsTicketidAddCommentPostAsync(Integer ticketid, Comment comment, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call secureTicketsTicketidAddCommentPostAsync(Integer ticketid, Comment comment, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -432,23 +432,23 @@ public class TicketsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ticketsTicketidAddCommentPostValidateBeforeCall(ticketid, comment, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureTicketsTicketidAddCommentPostValidateBeforeCall(ticketid, comment, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
-     * Build call for ticketsTicketidGet
+     * Build call for secureTicketsTicketidGet
      * @param ticketid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ticketsTicketidGetCall(Integer ticketid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secureTicketsTicketidGetCall(Integer ticketid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/tickets/{ticketid}"
+        String localVarPath = "/secure/tickets/{ticketid}"
             .replaceAll("\\{" + "ticketid" + "\\}", apiClient.escapeString(ticketid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -487,15 +487,15 @@ public class TicketsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ticketsTicketidGetValidateBeforeCall(Integer ticketid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secureTicketsTicketidGetValidateBeforeCall(Integer ticketid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ticketid' is set
         if (ticketid == null) {
-            throw new ApiException("Missing the required parameter 'ticketid' when calling ticketsTicketidGet(Async)");
+            throw new ApiException("Missing the required parameter 'ticketid' when calling secureTicketsTicketidGet(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = ticketsTicketidGetCall(ticketid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureTicketsTicketidGetCall(ticketid, progressListener, progressRequestListener);
         return call;
 
     }
@@ -507,8 +507,8 @@ public class TicketsApi {
      * @return Ticket
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Ticket ticketsTicketidGet(Integer ticketid) throws ApiException {
-        ApiResponse<Ticket> resp = ticketsTicketidGetWithHttpInfo(ticketid);
+    public Ticket secureTicketsTicketidGet(Integer ticketid) throws ApiException {
+        ApiResponse<Ticket> resp = secureTicketsTicketidGetWithHttpInfo(ticketid);
         return resp.getData();
     }
 
@@ -519,8 +519,8 @@ public class TicketsApi {
      * @return ApiResponse&lt;Ticket&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Ticket> ticketsTicketidGetWithHttpInfo(Integer ticketid) throws ApiException {
-        com.squareup.okhttp.Call call = ticketsTicketidGetValidateBeforeCall(ticketid, null, null);
+    public ApiResponse<Ticket> secureTicketsTicketidGetWithHttpInfo(Integer ticketid) throws ApiException {
+        com.squareup.okhttp.Call call = secureTicketsTicketidGetValidateBeforeCall(ticketid, null, null);
         Type localVarReturnType = new TypeToken<Ticket>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -533,7 +533,7 @@ public class TicketsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ticketsTicketidGetAsync(Integer ticketid, final ApiCallback<Ticket> callback) throws ApiException {
+    public com.squareup.okhttp.Call secureTicketsTicketidGetAsync(Integer ticketid, final ApiCallback<Ticket> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -554,24 +554,24 @@ public class TicketsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ticketsTicketidGetValidateBeforeCall(ticketid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureTicketsTicketidGetValidateBeforeCall(ticketid, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Ticket>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for ticketsUpdatePost
+     * Build call for secureTicketsUpdatePost
      * @param ticket  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ticketsUpdatePostCall(Ticket ticket, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secureTicketsUpdatePostCall(Ticket ticket, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = ticket;
 
         // create path and map variables
-        String localVarPath = "/tickets/update";
+        String localVarPath = "/secure/tickets/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -609,15 +609,15 @@ public class TicketsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ticketsUpdatePostValidateBeforeCall(Ticket ticket, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secureTicketsUpdatePostValidateBeforeCall(Ticket ticket, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ticket' is set
         if (ticket == null) {
-            throw new ApiException("Missing the required parameter 'ticket' when calling ticketsUpdatePost(Async)");
+            throw new ApiException("Missing the required parameter 'ticket' when calling secureTicketsUpdatePost(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = ticketsUpdatePostCall(ticket, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureTicketsUpdatePostCall(ticket, progressListener, progressRequestListener);
         return call;
 
     }
@@ -628,8 +628,8 @@ public class TicketsApi {
      * @param ticket  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void ticketsUpdatePost(Ticket ticket) throws ApiException {
-        ticketsUpdatePostWithHttpInfo(ticket);
+    public void secureTicketsUpdatePost(Ticket ticket) throws ApiException {
+        secureTicketsUpdatePostWithHttpInfo(ticket);
     }
 
     /**
@@ -639,8 +639,8 @@ public class TicketsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> ticketsUpdatePostWithHttpInfo(Ticket ticket) throws ApiException {
-        com.squareup.okhttp.Call call = ticketsUpdatePostValidateBeforeCall(ticket, null, null);
+    public ApiResponse<Void> secureTicketsUpdatePostWithHttpInfo(Ticket ticket) throws ApiException {
+        com.squareup.okhttp.Call call = secureTicketsUpdatePostValidateBeforeCall(ticket, null, null);
         return apiClient.execute(call);
     }
 
@@ -652,7 +652,7 @@ public class TicketsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ticketsUpdatePostAsync(Ticket ticket, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call secureTicketsUpdatePostAsync(Ticket ticket, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -673,7 +673,7 @@ public class TicketsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ticketsUpdatePostValidateBeforeCall(ticket, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureTicketsUpdatePostValidateBeforeCall(ticket, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
