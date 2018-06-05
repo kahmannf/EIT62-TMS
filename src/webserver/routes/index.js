@@ -7,7 +7,7 @@ const secure = require('./secure');
 
 // definiertdie routes fuer eingehende requests
 router.use('/auth', auth);
-router.use('/secure', secure);
+router.use(secure);
 
 
 module.exports = router;
