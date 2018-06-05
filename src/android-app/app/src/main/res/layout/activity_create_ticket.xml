@@ -21,6 +21,7 @@
         android:text="@string/activity_create_ticket_TicketName" />
 
     <EditText
+        android:id="@+id/txtTicketName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -40,6 +41,7 @@
         android:text="@string/activity_create_ticket_Description" />
 
     <EditText
+        android:id="@+id/txtTicketDescription"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_weight="1"
@@ -58,13 +60,11 @@
         android:layout_weight="1"
         android:text="@string/activity_create_ticket_Editor" />
 
-    <EditText
-        android:id="@+id/editText"
+    <Spinner
+        android:id="@+id/spnTicketEditor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        android:layout_weight="1" />
 
     <Space
         android:layout_width="match_parent"
@@ -72,9 +72,10 @@
         android:layout_weight="1" />
 
     <Button
+        android:id="@+id/btnTicketSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Button" />
+        android:text="@string/activity_create_ticket_btnTicketSave" />
 
 </LinearLayout>
