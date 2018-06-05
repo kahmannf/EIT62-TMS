@@ -93,17 +93,17 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**authLoginPost**](docs/AuthApi.md#authLoginPost) | **POST** /auth/login | attempts a login operation
 *AuthApi* | [**authRefreshPost**](docs/AuthApi.md#authRefreshPost) | **POST** /auth/refresh | takes a refresh-token and return a new access-token
 *AuthApi* | [**authRegisterPost**](docs/AuthApi.md#authRegisterPost) | **POST** /auth/register | register a new user
-*ProjectsApi* | [**projectsMineGet**](docs/ProjectsApi.md#projectsMineGet) | **GET** /projects/mine | returns an array of projects associated to the logged in user
-*ProjectsApi* | [**projectsProjectidAddUserUseridPost**](docs/ProjectsApi.md#projectsProjectidAddUserUseridPost) | **POST** /projects/{projectid}/add-user/{userid} | adds a user to a project
-*ProjectsApi* | [**projectsSavePost**](docs/ProjectsApi.md#projectsSavePost) | **POST** /projects/save | saves a project. if projectid is 0 or null/undefined, creates a new project
-*TicketsApi* | [**projectsProjectidNewTicketPost**](docs/TicketsApi.md#projectsProjectidNewTicketPost) | **POST** /projects/{projectid}/new-ticket | create a new ticket assciated to the project
-*TicketsApi* | [**projectsProjectidTicketsGet**](docs/TicketsApi.md#projectsProjectidTicketsGet) | **GET** /projects/{projectid}/tickets | returns a paging-object containing tickets
-*TicketsApi* | [**ticketsTicketidAddCommentPost**](docs/TicketsApi.md#ticketsTicketidAddCommentPost) | **POST** /tickets/{ticketid}/add-comment | adds a comment to a ticket
-*TicketsApi* | [**ticketsTicketidGet**](docs/TicketsApi.md#ticketsTicketidGet) | **GET** /tickets/{ticketid} | return a ticket by id
-*TicketsApi* | [**ticketsUpdatePost**](docs/TicketsApi.md#ticketsUpdatePost) | **POST** /tickets/update | updates a existing ticket
-*UsersApi* | [**usersMeGet**](docs/UsersApi.md#usersMeGet) | **GET** /users/me | get user data for the logged in user
-*UsersApi* | [**usersSearchGet**](docs/UsersApi.md#usersSearchGet) | **GET** /users/search | searches for a user by name or email
-*UtilApi* | [**statusAllGet**](docs/UtilApi.md#statusAllGet) | **GET** /status/all | returns a list of all available status-valus
+*ProjectsApi* | [**secureProjectsMineGet**](docs/ProjectsApi.md#secureProjectsMineGet) | **GET** /secure/projects/mine | returns an array of projects associated to the logged in user
+*ProjectsApi* | [**secureProjectsProjectidAddUserUseridPost**](docs/ProjectsApi.md#secureProjectsProjectidAddUserUseridPost) | **POST** /secure/projects/{projectid}/add-user/{userid} | adds a user to a project
+*ProjectsApi* | [**secureProjectsSavePost**](docs/ProjectsApi.md#secureProjectsSavePost) | **POST** /secure/projects/save | saves a project. if projectid is 0 or null/undefined, creates a new project
+*TicketsApi* | [**secureProjectsProjectidNewTicketPost**](docs/TicketsApi.md#secureProjectsProjectidNewTicketPost) | **POST** /secure/projects/{projectid}/new-ticket | create a new ticket assciated to the project
+*TicketsApi* | [**secureProjectsProjectidTicketsGet**](docs/TicketsApi.md#secureProjectsProjectidTicketsGet) | **GET** /secure/projects/{projectid}/tickets | returns a paging-object containing tickets
+*TicketsApi* | [**secureTicketsTicketidAddCommentPost**](docs/TicketsApi.md#secureTicketsTicketidAddCommentPost) | **POST** /secure/tickets/{ticketid}/add-comment | adds a comment to a ticket
+*TicketsApi* | [**secureTicketsTicketidGet**](docs/TicketsApi.md#secureTicketsTicketidGet) | **GET** /secure/tickets/{ticketid} | return a ticket by id
+*TicketsApi* | [**secureTicketsUpdatePost**](docs/TicketsApi.md#secureTicketsUpdatePost) | **POST** /secure/tickets/update | updates a existing ticket
+*UsersApi* | [**secureUsersMeGet**](docs/UsersApi.md#secureUsersMeGet) | **GET** /secure/users/me | get user data for the logged in user
+*UsersApi* | [**secureUsersSearchGet**](docs/UsersApi.md#secureUsersSearchGet) | **GET** /secure/users/search | searches for a user by name or email
+*UtilApi* | [**secureStatusAllGet**](docs/UtilApi.md#secureStatusAllGet) | **GET** /secure/status/all | returns a list of all available status-valus
 
 
 ## Documentation for Models

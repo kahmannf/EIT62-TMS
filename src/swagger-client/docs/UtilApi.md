@@ -4,12 +4,12 @@ All URIs are relative to *https://virtserver.swaggerhub.com/eit62-tms/TMS-Webser
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**statusAllGet**](UtilApi.md#statusAllGet) | **GET** /status/all | returns a list of all available status-valus
+[**secureStatusAllGet**](UtilApi.md#secureStatusAllGet) | **GET** /secure/status/all | returns a list of all available status-valus
 
 
-<a name="statusAllGet"></a>
-# **statusAllGet**
-> List&lt;Status&gt; statusAllGet()
+<a name="secureStatusAllGet"></a>
+# **secureStatusAllGet**
+> List&lt;Status&gt; secureStatusAllGet()
 
 returns a list of all available status-valus
 
@@ -22,10 +22,10 @@ returns a list of all available status-valus
 
 UtilApi apiInstance = new UtilApi();
 try {
-    List<Status> result = apiInstance.statusAllGet();
+    List<Status> result = apiInstance.secureStatusAllGet();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling UtilApi#statusAllGet");
+    System.err.println("Exception when calling UtilApi#secureStatusAllGet");
     e.printStackTrace();
 }
 ```

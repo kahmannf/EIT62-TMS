@@ -28,8 +28,8 @@ public class ProjectsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void projectsMineGetTest() throws ApiException {
-        List<Project> response = api.projectsMineGet();
+    public void secureProjectsMineGetTest() throws ApiException {
+        List<Project> response = api.secureProjectsMineGet();
 
         // TODO: test validations
     }
@@ -43,10 +43,10 @@ public class ProjectsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void projectsProjectidAddUserUseridPostTest() throws ApiException {
+    public void secureProjectsProjectidAddUserUseridPostTest() throws ApiException {
         Integer projectid = null;
         Integer userid = null;
-        api.projectsProjectidAddUserUseridPost(projectid, userid);
+        api.secureProjectsProjectidAddUserUseridPost(projectid, userid);
 
         // TODO: test validations
     }
@@ -60,9 +60,9 @@ public class ProjectsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void projectsSavePostTest() throws ApiException {
+    public void secureProjectsSavePostTest() throws ApiException {
         Project project = null;
-        api.projectsSavePost(project);
+        api.secureProjectsSavePost(project);
 
         // TODO: test validations
     }

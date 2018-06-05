@@ -44,17 +44,17 @@ public class UtilApi {
     }
 
     /**
-     * Build call for statusAllGet
+     * Build call for secureStatusAllGet
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call statusAllGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secureStatusAllGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/status/all";
+        String localVarPath = "/secure/status/all";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -92,10 +92,10 @@ public class UtilApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call statusAllGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secureStatusAllGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = statusAllGetCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureStatusAllGetCall(progressListener, progressRequestListener);
         return call;
 
     }
@@ -106,8 +106,8 @@ public class UtilApi {
      * @return List&lt;Status&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Status> statusAllGet() throws ApiException {
-        ApiResponse<List<Status>> resp = statusAllGetWithHttpInfo();
+    public List<Status> secureStatusAllGet() throws ApiException {
+        ApiResponse<List<Status>> resp = secureStatusAllGetWithHttpInfo();
         return resp.getData();
     }
 
@@ -117,8 +117,8 @@ public class UtilApi {
      * @return ApiResponse&lt;List&lt;Status&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Status>> statusAllGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = statusAllGetValidateBeforeCall(null, null);
+    public ApiResponse<List<Status>> secureStatusAllGetWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = secureStatusAllGetValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<List<Status>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -130,7 +130,7 @@ public class UtilApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call statusAllGetAsync(final ApiCallback<List<Status>> callback) throws ApiException {
+    public com.squareup.okhttp.Call secureStatusAllGetAsync(final ApiCallback<List<Status>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -151,7 +151,7 @@ public class UtilApi {
             };
         }
 
-        com.squareup.okhttp.Call call = statusAllGetValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = secureStatusAllGetValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Status>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

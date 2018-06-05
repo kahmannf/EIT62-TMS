@@ -29,8 +29,8 @@ public class UsersApiTest {
      *          if the Api call fails
      */
     @Test
-    public void usersMeGetTest() throws ApiException {
-        User response = api.usersMeGet();
+    public void secureUsersMeGetTest() throws ApiException {
+        User response = api.secureUsersMeGet();
 
         // TODO: test validations
     }
@@ -44,11 +44,11 @@ public class UsersApiTest {
      *          if the Api call fails
      */
     @Test
-    public void usersSearchGetTest() throws ApiException {
+    public void secureUsersSearchGetTest() throws ApiException {
         Integer offset = null;
         Integer limit = null;
         String search = null;
-        UserPage response = api.usersSearchGet(offset, limit, search);
+        UserPage response = api.secureUsersSearchGet(offset, limit, search);
 
         // TODO: test validations
     }

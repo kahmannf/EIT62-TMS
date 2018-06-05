@@ -28,8 +28,8 @@ public class UtilApiTest {
      *          if the Api call fails
      */
     @Test
-    public void statusAllGetTest() throws ApiException {
-        List<Status> response = api.statusAllGet();
+    public void secureStatusAllGetTest() throws ApiException {
+        List<Status> response = api.secureStatusAllGet();
 
         // TODO: test validations
     }

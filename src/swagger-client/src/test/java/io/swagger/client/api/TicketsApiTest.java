@@ -30,10 +30,10 @@ public class TicketsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void projectsProjectidNewTicketPostTest() throws ApiException {
+    public void secureProjectsProjectidNewTicketPostTest() throws ApiException {
         Integer projectid = null;
         Ticket ticket = null;
-        api.projectsProjectidNewTicketPost(projectid, ticket);
+        api.secureProjectsProjectidNewTicketPost(projectid, ticket);
 
         // TODO: test validations
     }
@@ -47,11 +47,11 @@ public class TicketsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void projectsProjectidTicketsGetTest() throws ApiException {
+    public void secureProjectsProjectidTicketsGetTest() throws ApiException {
         Integer projectid = null;
         Integer offset = null;
         Integer limit = null;
-        TicketPage response = api.projectsProjectidTicketsGet(projectid, offset, limit);
+        TicketPage response = api.secureProjectsProjectidTicketsGet(projectid, offset, limit);
 
         // TODO: test validations
     }
@@ -65,10 +65,10 @@ public class TicketsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void ticketsTicketidAddCommentPostTest() throws ApiException {
+    public void secureTicketsTicketidAddCommentPostTest() throws ApiException {
         Integer ticketid = null;
         Comment comment = null;
-        api.ticketsTicketidAddCommentPost(ticketid, comment);
+        api.secureTicketsTicketidAddCommentPost(ticketid, comment);
 
         // TODO: test validations
     }
@@ -82,9 +82,9 @@ public class TicketsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void ticketsTicketidGetTest() throws ApiException {
+    public void secureTicketsTicketidGetTest() throws ApiException {
         Integer ticketid = null;
-        Ticket response = api.ticketsTicketidGet(ticketid);
+        Ticket response = api.secureTicketsTicketidGet(ticketid);
 
         // TODO: test validations
     }
@@ -98,9 +98,9 @@ public class TicketsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void ticketsUpdatePostTest() throws ApiException {
+    public void secureTicketsUpdatePostTest() throws ApiException {
         Ticket ticket = null;
-        api.ticketsUpdatePost(ticket);
+        api.secureTicketsUpdatePost(ticket);
 
         // TODO: test validations
     }
