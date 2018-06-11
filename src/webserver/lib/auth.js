@@ -93,9 +93,9 @@ const getUserByUsername = (username) => new Promise((resolve, reject) => {
 /**
  * Creates a jsonwebtoken for authentication containing the user as payload
  * @param {string} username 
- * @returns {string} a jsonwebtoken
+ * @returns {Promise} a jsonwebtoken
  */
-const getToken = (username) => new Promise((resolve, reject) => {
+const getAccessToken = (username) => new Promise((resolve, reject) => {
   getUserByUsername(username)
   .then(user => {
     resolve(security.getToken(user)); 
@@ -103,8 +103,22 @@ const getToken = (username) => new Promise((resolve, reject) => {
   .catch(reject);
 });
 
+/**
+ * Creates a jsonwebtoken as a refresh containing the userid as payload
+ * @param {string} username 
+ * @returns {Promise} a jsonwebtoken
+ */
+const getRefreshToken = (username) => new Promise((resolve, reject) => {
+  getUserByUsername(username)
+  .then(user => {
+    resolve(security.getRefreshToken(user.ID)); 
+  })
+  .catch(reject);
+}); 
+
 module.exports = {
-  getToken,
+  getAccessToken,
+  getRefreshToken,
   registerUser,
   verifyCredentials
 }

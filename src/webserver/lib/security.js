@@ -64,6 +64,15 @@ const getToken = (payload) => {
 }
 
 /**
+ * Generates a new jsonwebtoken that never expires
+ * @param {any} payload a value that will be included in the token
+ * @returns {string} a jsonwebtoken
+ */
+const getRefreshToken = (payload) => {
+  return jwt.sign(user, config.security.tokensecret);
+}
+
+/**
  * gets the payload from a jsonwebtoken
  * @param {string} token a jsonwebtoken
  * @returns {Promise} a promise that resolves into the payload of the token
@@ -153,6 +162,7 @@ module.exports = {
   decodeToken,
   getHash,
   getPayload,
+  getRefreshToken,
   getToken,
   genRandomString,
   requireAuth,
