@@ -1,6 +1,6 @@
-rm -rf /home/pi/webserver
-
 cp -rf ./webserver /home/pi/webserver
+
+cp -rf ../Entwurf/tms-schema.sql /home/pi/webserver/tms-schema.sql
 
 rm /home/pi/webserver/package-lock.json
 
