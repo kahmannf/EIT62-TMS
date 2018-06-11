@@ -46,6 +46,4 @@ if (createSchema) {
 } 
 
 
-module.exports = {
-  db
-};
+module.exports = db;
