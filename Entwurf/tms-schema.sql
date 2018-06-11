@@ -6,12 +6,16 @@ CREATE TABLE User
   UserName TEXT NOT NULL
 );
 
+-- Split
+
 CREATE TABLE Project 
 (
   ID INTEGER NOT NULL PRIMARY KEY,
   Timestamp TEXT NOT NULL,
   Description TEXT NOT NULL
 );
+
+-- Split
 
 CREATE TABLE Comment 
 (
@@ -21,12 +25,16 @@ CREATE TABLE Comment
   IDTicket INTEGER NOT NULL
 );
 
+-- Split
+
 CREATE TABLE Status
 (
   ID INTEGER NOT NULL PRIMARY KEY,
   Color TEXT NOT NULL,
   Description TEXT
 );
+
+-- Split
 
 CREATE TABLE Ticket 
 (
@@ -36,26 +44,34 @@ CREATE TABLE Ticket
   AcceptanceCriteria TEXT NOT NULL,
   Title TEXT NOT NULL,
   Creater INTEGER NOT NULL,
-  IDProjeckt INTEGER NOT NULL,
+  IDProject INTEGER NOT NULL,
   IDStatus INTEGER NOT NULL
 );
 
---Hilfstabellen
+-- Split
+
 CREATE TABLE ProjectMember
 (
-  IDUser INTEGER NOT NULL PRIMERY KEY,
-  IDProjekt INTEGER NOT NULL PRIMERY KEY
+  IDUser INTEGER NOT NULL,
+  IDProject INTEGER NOT NULL,
+  PRIMARY KEY (IDUser, IDProject)
 );
+
+-- Split
 
 CREATE TABLE UserComments
 (
-  IDUser INTEGER NOT NULL PRIMARY KEY,
-  IDComment INTEGER NOT NULL PRIMARY KEY  
+  IDUser INTEGER NOT NULL,
+  IDComment INTEGER NOT NULL,
+  PRIMARY KEY (IDUser, IDComment)  
 );
+
+-- Split
 
 CREATE TABLE TicketEditor
 (
-  IDUser INTEGER NOT NULL PRIMARY KEY,
-  IDTicket INTEGER NOT NULL PRIMARY KEY,
-  Timestamp TEXT NOT NULL
+  IDUser INTEGER NOT NULL,
+  IDTicket INTEGER NOT NULL,
+  Timestamp TEXT NOT NULL,
+  PRIMARY KEY (IDUser, IDTicket)
 );
