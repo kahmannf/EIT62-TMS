@@ -7,7 +7,7 @@ const tickets = require('./tickets');
 const users = require('./users');
 const util = require('./util');
 
-const { decodeToken, requireAuth } = require('../../lib/auth');
+const { decodeToken, requireAuth } = require('../../lib/security');
 
 // token decodieren und payload in req.oauth.payload ablegen,
 // sowie req.oauth.verified auf true oder false setzten
