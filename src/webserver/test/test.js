@@ -13,14 +13,17 @@ var app;
 describe('test', function () {
   this.beforeAll(function serverSetup(done) {
 
+    // delete old test db
     if (fs.existsSync('testDBTemp.sqlite')) {
       fs.unlinkSync('testDBTemp.sqlite');
     }
 
-    fs.copyFileSync('testDB.sqlite', 'testDBTemp.sqlite');
-
+    // override default db name
     const config = require('../config');
     config.db.filename = 'testDBTemp.sqlite';
+
+    // set logging level to errors only
+    config.server.logLevel = 500;
 
     // start server
     app = require('../index');
@@ -28,12 +31,6 @@ describe('test', function () {
     done();
 
   });
-
-  it('config should have testDBTemp.sqlite as DBFilename', function () {
-    const config = require('../config');
-    assert.equal(config.db.filename, 'testDBTemp.sqlite');
-  });
-
 
   describe('auth', function () {
     
@@ -67,6 +64,10 @@ describe('test', function () {
         });
     });
 
+  });
+
+  this.afterAll(function endApp() {
+    app.close();
   });
 
 });
