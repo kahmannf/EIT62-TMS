@@ -10,7 +10,7 @@ cp -rf ./webserver /home/pi/webserver
 
 cp -rf ../Entwurf/tms-schema.sql /home/pi/webserver/tms-schema.sql
 
-rm /home/pi/webserver/package-lock.json
+rm -rf /home/pi/webserver/package-lock.json
 
 cd /home/pi/webserver
 
