@@ -1,9 +1,12 @@
+'use strict';
 const express = require('express');
 const router = express.Router();
 
 // speichert ein project. 
 // Wenn projectid undefined/null/0 ist wird ein neues angelegt
 router.post('/save', (req, res) => {
+  
+  
   res.sendStatus(501);
 });
 

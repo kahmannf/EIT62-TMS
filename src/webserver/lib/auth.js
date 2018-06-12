@@ -1,3 +1,4 @@
+'use strict';
 const security = require('./security');
 const db = require('./db');
 const user = require('./user');
