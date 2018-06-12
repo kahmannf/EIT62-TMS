@@ -19,7 +19,10 @@
         completions."
     </string>
     <string name="activity_create_ticket_TicketName">Ticket Name</string>
-    <string name="activity_create_ticket_Description">Beschreibung</string>
+    <string name="Description">Beschreibung</string>
     <string name="activity_create_ticket_Editor">Bearbeiter</string>
-    <string name="activity_create_ticket_btnTicketSave">Ticket erstellen</string>
+    <string name="Create">Erstellen</string>
+    <string name="activity_create_project_AcceptanceCriteria">Akzeptanzkriterien</string>
+    <string name="Status">Status</string>
+    <string name="ProjectName">Projekt Name</string>
 </resources>
