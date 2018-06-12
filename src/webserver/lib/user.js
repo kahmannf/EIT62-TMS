@@ -10,7 +10,7 @@ const checkIfUsernameExists = (username) => new Promise((resolve, reject) => {
   
   username = username.trim();
   
-  db.get('select * from User where lower(UserName) like lower(?)', (err, row) => {
+  db.get('select * from User where lower(UserName) like lower(?)', username, (err, row) => {
 
     if(err) {
       reject(err);

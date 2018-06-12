@@ -76,8 +76,8 @@ const verifyCredentials = (username, password) => new Promise((resolve, reject) 
  */
 const getAccessToken = (username) => new Promise((resolve, reject) => {
   user.getUserByUsername(username)
-  .then(user => {
-    resolve(security.getToken(user)); 
+  .then(dbuser => {
+    resolve(security.getToken(dbuser)); 
   })
   .catch(reject);
 });
@@ -89,8 +89,8 @@ const getAccessToken = (username) => new Promise((resolve, reject) => {
  */
 const getRefreshToken = (username) => new Promise((resolve, reject) => {
   user.getUserByUsername(username)
-  .then(user => {
-    resolve(security.getRefreshToken(user.ID)); 
+  .then(dbuser => {
+    resolve(security.getRefreshToken(dbuser.ID)); 
   })
   .catch(reject);
 }); 

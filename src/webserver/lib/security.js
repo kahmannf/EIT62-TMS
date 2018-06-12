@@ -60,7 +60,7 @@ const verifyPassword = (password, hash, salt) => {
  * @returns {string} a jsonwebtoken
  */
 const getToken = (payload) => {
-  return jwt.sign(user, config.security.tokensecret, { expiresIn: config.security.tokenttl});
+  return jwt.sign(payload, config.security.tokensecret, { expiresIn: config.security.tokentll });
 }
 
 /**
@@ -69,7 +69,7 @@ const getToken = (payload) => {
  * @returns {string} a jsonwebtoken
  */
 const getRefreshToken = (payload) => {
-  return jwt.sign(user, config.security.tokensecret);
+  return jwt.sign(payload, config.security.tokensecret);
 }
 
 /**

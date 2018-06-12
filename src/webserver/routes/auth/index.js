@@ -49,7 +49,7 @@ router.post('/register', (req, res) => {
     auth.registerUser(req.body.data.Username, req.body.data.Password)
       .then(result => {
         if (result) {
-          res.sendStatus(200);
+          res.sendStatus(202);
         } else {
           res.sendStatus(400);
         }
