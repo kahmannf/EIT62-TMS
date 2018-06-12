@@ -12,7 +12,8 @@ CREATE TABLE Project
 (
   ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   Timestamp TEXT NOT NULL,
-  Description TEXT NOT NULL
+  Description TEXT NOT NULL,
+  OwnerID INTEGER NOT NULL
 );
 
 -- Split
