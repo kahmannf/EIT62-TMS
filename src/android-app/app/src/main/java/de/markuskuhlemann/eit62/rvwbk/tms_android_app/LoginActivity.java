@@ -32,9 +32,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.swagger.client.ApiException;
-import io.swagger.client.api.AuthApi;
-import io.swagger.client.model.*;
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
@@ -311,24 +309,26 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected Boolean doInBackground(Void... params) {
 
 
-            try {
+           // try {
                 // Simulate network access.
-                AuthApi authApi = new AuthApi();
-                Authdata data = new Authdata();
-                data.setPassword(mPassword);
-                data.setUsername(mEmail);
+             //   io.swagger.client.api.AuthApi api = new AuthApi();
+              //  AuthApi authApi = new AuthApi();
+              //  Authdata data = new Authdata();
+               // data.setPassword(mPassword);
+               // data.setUsername(mEmail);
 
 
-                InlineResponse200 response200 = authApi.authLoginPost(data);
-                AuthHandler.getInstance().setAuthData(response200);
+                //InlineResponse200 response200 = authApi.authLoginPost(data);
+                //AuthHandler.getInstance().setAuthData(response200);
                 // TODO: Überleiten zur HauptOberfläche
 
-            }  catch (ApiException e) {
-                if(e.getCode() == 401){
-                    // TODO: TOOAST: Ungültige login Daten
-                }
-                return false;
-            }
+           // }
+           // catch (ApiException e) {
+           //     if(e.getCode() == 401){
+           //         // TODO: TOOAST: Ungültige login Daten
+           //     }
+           //     return false;
+           // }
 
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
