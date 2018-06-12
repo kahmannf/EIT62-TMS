@@ -21,8 +21,9 @@ app.use((req, res, next) => {
 app.use(routes);
 
 // startet den server und loggt eine message wenn der server laeuft
-app.listen(config.server.port, () => {
+const server = app.listen(config.server.port, () => {
   logger.log('Server listening on ' + config.server.port, 0);
 });
 
-module.exports = app;
+// server fuer mocha unit test exportieren
+module.exports = server;

@@ -270,5 +270,4 @@ $RECYCLE.BIN/
 # SQLite database files 
 *.sqlite
 
-
 # End of https://www.gitignore.io/api/node,android,windows,androidstudio,microsoftoffice,visualstudiocode
