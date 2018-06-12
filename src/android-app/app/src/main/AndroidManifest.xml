@@ -25,7 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateTicketActivity"></activity>
+        <activity android:name=".CreateTicketActivity" />
+        <activity android:name=".CreateProjectActivity"></activity>
     </application>
 
 </manifest>
