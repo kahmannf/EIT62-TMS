@@ -1,3 +1,9 @@
+cd
+
+cd eit62-tms/src
+
+git pull
+
 rm -rf /home/pi/webserver
 
 cp -rf ./webserver /home/pi/webserver
@@ -11,3 +17,5 @@ cd /home/pi/webserver
 cp /home/pi/.env .env
 
 npm i
+
+npm start
