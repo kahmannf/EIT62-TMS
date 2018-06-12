@@ -189,7 +189,7 @@ describe('test', function () {
       
       return chai.request(app)
       .post('/secure/projects/save')
-      .set('Authorization', testerAuthData.token)
+      .set('Authentication', 'Bearer ' + testerAuthData.token)
       .send({
         Description: 'Testproject'
       }).then((res, err) => {
@@ -201,7 +201,7 @@ describe('test', function () {
     it('/secure/projects/save should not accept invalid project', function (){
       return chai.request(app)
       .post('/secure/projects/save')
-      .set('Authorization', testerAuthData.token)
+      .set('Authentication', 'Bearer ' + testerAuthData.token)
       .send({
       }).then((res, err) => {
         expect(err).to.be.undefined;
@@ -212,7 +212,7 @@ describe('test', function () {
     it('/secure/projects/mine should return the created project for Tester', function() {
       return chai.request(app)
       .get('/secure/projects/mine')
-      .set('Authorization', testerAuthData.token)
+      .set('Authentication', 'Bearer ' + testerAuthData.token)
       .send()
       .then((res, err) => {
         expect(err).to.be.undefined;
@@ -228,7 +228,7 @@ describe('test', function () {
     it('/secure/projects/mine should return no project for Dummy1', function() {
       return chai.request(app)
       .get('/secure/projects/mine')
-      .set('Authorization', dummy1AuthData.token)
+      .set('Authentication', 'Bearer ' + dummy1AuthData.token)
       .send()
       .then((res, err) => {
         expect(err).to.be.undefined;

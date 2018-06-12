@@ -2,17 +2,24 @@
 const express = require('express');
 const router = express.Router();
 
+const logger = require('../../logger');
+
+const project = require('../../lib/projects');
+
 // speichert ein project. 
 // Wenn projectid undefined/null/0 ist wird ein neues angelegt
 router.post('/save', (req, res) => {
-  
-  
   res.sendStatus(501);
 });
 
 // laedt alle projekte eines nutzer
 router.get('/mine', (req, res) => {
-  res.sendStatus(501);
+  project.getUserProjects(req.oauth.payload)
+    .then(result => res.json(result))
+    .catch(err => {
+      logger.error(err, 500);
+      res.sendStatus(500);
+    });
 });
 
 // fuegt ein User zu einem Projekt hinzu
