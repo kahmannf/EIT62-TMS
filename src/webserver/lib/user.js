@@ -24,6 +24,30 @@ const checkIfUsernameExists = (username) => new Promise((resolve, reject) => {
 
 });
 
+/**
+ * Gets a user-object from the database
+ * @param {string} username 
+ * @returns a user-object without hash and salt properties
+ */
+const getUserByUsername = (username) => new Promise((resolve, reject) => {
+
+  username = username.trim();
+
+  var sql = 'select id, username from user where lower(username) like lower(?)';
+
+  db.get(sql, username, (err, row) => {
+    if(err) {
+      reject(err);
+    } else if (row) {
+      resolve(row);
+    } else {
+      reject(new Error(`no user with username '${username}'`));
+    }
+  });
+
+});
+
 module.exports = {
-  checkIfUsernameExists
+  checkIfUsernameExists,
+  getUserByUsername
 }

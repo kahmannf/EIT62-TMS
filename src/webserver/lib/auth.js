@@ -67,28 +67,7 @@ const verifyCredentials = (username, password) => new Promise((resolve, reject) 
   });
 });
 
-/**
- * Gets a user-object from the database
- * @param {string} username 
- * @returns a user-object without hash and salt properties
- */
-const getUserByUsername = (username) => new Promise((resolve, reject) => {
 
-  username = username.trim();
-
-  var sql = 'select id, username from user where lower(username) like lower(?)';
-
-  db.get(sql, username, (err, row) => {
-    if(err) {
-      reject(err);
-    } else if (row) {
-      resolve(row);
-    } else {
-      reject(`no user with username '${username}'`);
-    }
-  });
-
-});
 
 /**
  * Creates a jsonwebtoken for authentication containing the user as payload
@@ -96,7 +75,7 @@ const getUserByUsername = (username) => new Promise((resolve, reject) => {
  * @returns {Promise} a jsonwebtoken
  */
 const getAccessToken = (username) => new Promise((resolve, reject) => {
-  getUserByUsername(username)
+  user.getUserByUsername(username)
   .then(user => {
     resolve(security.getToken(user)); 
   })
@@ -109,7 +88,7 @@ const getAccessToken = (username) => new Promise((resolve, reject) => {
  * @returns {Promise} a jsonwebtoken
  */
 const getRefreshToken = (username) => new Promise((resolve, reject) => {
-  getUserByUsername(username)
+  user.getUserByUsername(username)
   .then(user => {
     resolve(security.getRefreshToken(user.ID)); 
   })
