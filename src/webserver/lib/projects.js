@@ -3,6 +3,30 @@ const db = require('./db');
 
 const saveProject = (project, user) => new Promise((resolve, reject) => {
   
+  if(project.ID) {
+    getProjectById(project.ID)
+    .then(dbproject => {
+      let sqlUpdate = 'update project set description = ? where id = ?';
+
+      db.run(sql, [project.Description, project.ID], err => {
+        if(err) {
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    })
+    .catch(err => reject(err));
+  } else {
+    let sqlInsert = 'insert into project(Description, Timestamp) values (?, ?)';
+    db.run(sqlInsert, [project.Description, new Date()], err => {
+      if(err) {
+        reject(err);
+      } else {
+        resolve();
+      }
+    })
+  }
   
   reject();
 });
@@ -21,6 +45,19 @@ const getUserProjects = (user) => new Promise((resolve, reject) => {
   });
 });
 
+const getProjectById = (projectid) => new Promise((resolve, reject) => {
+  let sql = 'select * from project where id = ?';
+
+  db.get(sql, projectid, (err, row) => {
+    if(err) {
+      reject(err);
+    } else if (row) {
+      resolve(row);
+    } else {
+      reject(new Error(`No project with id '${projectid}'`));
+    }
+  });
+});
 
 module.exports = {
   saveProject,
