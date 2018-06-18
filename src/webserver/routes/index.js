@@ -10,6 +10,13 @@ const secure = require('./secure');
 router.use('/auth', auth);
 router.use('/secure', secure);
 
+router.use('/dummy', (req, res) => {
+  res.json({
+    Name: 'TestUser',
+    ID: -1
+  });
+});
+
 
 module.exports = router;
 
