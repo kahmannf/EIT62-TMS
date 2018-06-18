@@ -11,5 +11,9 @@
 - es sollen Kommentare zu Tickets erfasst werden können
 - man soll alle Tickets in einer filterbaren (Status, eventuell Textfilter) Liste ansehen können
 
+## Infos zum source:
+
+[Hier](src/README.md)
+
 
 
