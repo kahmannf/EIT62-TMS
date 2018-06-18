@@ -18,14 +18,14 @@ const saveProject = (project, user) => new Promise((resolve, reject) => {
     })
     .catch(err => reject(err));
   } else {
-    let sqlInsert = 'insert into project(Description, Timestamp) values (?, ?)';
-    db.run(sqlInsert, [project.Description, new Date()], err => {
+    let sqlInsert = 'insert into project(Description, Timestamp, OwnerID) values (?, ?, ?)';
+    db.run(sqlInsert, [project.Description, new Date(), user.ID], err => {
       if(err) {
         reject(err);
       } else {
         resolve();
       }
-    })
+    });
   }
   
   reject();

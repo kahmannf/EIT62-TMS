@@ -9,7 +9,18 @@ const project = require('../../lib/projects');
 // speichert ein project. 
 // Wenn projectid undefined/null/0 ist wird ein neues angelegt
 router.post('/save', (req, res) => {
-  res.sendStatus(501);
+  if(req.body.Description) {
+    project.saveProject(req.body, req.oauth.payload)
+    .then(()=> {
+      res.sendStatus(202);
+    })
+    .catch(err => {
+      logger.error(err, 500);
+      res.sendStatus(500);
+    })
+  } else {
+    res.sendStatus(400);
+  }
 });
 
 // laedt alle projekte eines nutzer
