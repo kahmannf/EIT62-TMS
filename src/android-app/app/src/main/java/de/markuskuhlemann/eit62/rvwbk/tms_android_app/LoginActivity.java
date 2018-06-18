@@ -33,6 +33,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient.ApiClient;
+import de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient.Model.User;
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
@@ -164,18 +167,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
-            cancel = true;
+           // cancel = true;
         }
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
             mEmailView.setError(getString(R.string.error_field_required));
             focusView = mEmailView;
-            cancel = true;
+          //  cancel = true;
         } else if (!isEmailValid(email)) {
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
-            cancel = true;
+           // cancel = true;
         }
 
         if (cancel) {
@@ -309,7 +312,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected Boolean doInBackground(Void... params) {
 
 
-           // try {
+           try {
+               ApiClient client = ApiClient.GetApiClient();
+                User user = null;
+                client.GetUserNew();
+               //User user = client,.loginUser(mEmail,mPassword.toCharArray());
+                if(user!=null)
+                {
+
+
+                }
+                else{
+                  //  client.createUser(mEmail,mPassword.toCharArray());
+                }
                 // Simulate network access.
              //   io.swagger.client.api.AuthApi api = new AuthApi();
               //  AuthApi authApi = new AuthApi();
@@ -322,13 +337,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 //AuthHandler.getInstance().setAuthData(response200);
                 // TODO: Überleiten zur HauptOberfläche
 
-           // }
-           // catch (ApiException e) {
-           //     if(e.getCode() == 401){
-           //         // TODO: TOOAST: Ungültige login Daten
-           //     }
-           //     return false;
-           // }
+           }
+           catch (Error err){
+
+           }
+
 
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
