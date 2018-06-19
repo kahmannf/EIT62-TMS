@@ -1,5 +1,6 @@
 package de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient;
 
+import de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient.Model.AuthDataReturn;
 import de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient.Model.User;
 
 import android.support.annotation.Nullable;
@@ -24,7 +25,7 @@ import java.net.URL;
 public class ApiClient {
 
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-    private static final String BASE_URL = "http://127.0.0.1:8000";
+    private static final String BASE_URL = "http://192.168.64.60:8000";
 
     private static ApiClient client;
     public static ApiClient GetApiClient()
@@ -45,20 +46,21 @@ public class ApiClient {
      *
      * @return an instance of {@code WAServiceClient}
      */
-    public User loginUser(String username, char[] password) {
-        String json = "{\"Username\":\"" + username + "\",\"Password\":\"" + password + "\"}";
+    public AuthDataReturn loginUser(String username, String password) {
+        String json = "{ \"authdata\": { \"Username\": \"" + username + "\", \"Password\": \"" + password + "\"}}";
         String user = getJson(Endpoints.LOGIN, json);
-        User loggedInUser = null;
+        AuthDataReturn loggedInUser = null;
         if (user != null) {
 
-            loggedInUser = gson.fromJson(user, User.class);
+            loggedInUser = gson.fromJson(user, AuthDataReturn.class);
 
         }
         return loggedInUser;
     }
-    public User createUser(String username, char[] password)
+    public User createUser(String username, String password)
     {
-        String json = "{\"Username\":\"" + username + "\",\"Password\":\"" + password + "\"}";
+
+        String json = "{ \"data\": { \"Username\": \"" + username + "\", \"Password\": \"" + password + "\"}}";
         String user = getJson(Endpoints.REGISTER, json);
         User loggedInUser = null;
         if (user != null) {
@@ -66,7 +68,7 @@ public class ApiClient {
             loggedInUser = gson.fromJson(user, User.class);
 
         }
-        return loggedInUser;
+        return null;
     }
 
     /**
@@ -80,15 +82,19 @@ public class ApiClient {
     @Nullable
     private String getJson(Endpoints endpoint, String json) {
         String url = BASE_URL + endpoint.getEndpoint();
+
         OkHttpClient client = new OkHttpClient();
-        RequestBody body = RequestBody.create(JSON, json);
-        Request request = new Request.Builder().url(url)
+
+        int i = client.writeTimeoutMillis();
+        okhttp3.RequestBody body = RequestBody.create(JSON, json);
+        okhttp3.Request request = new Request.Builder().url(url)
                 .post(body)
                 .build();
         try (Response response = client.newCall(request)
                 .execute();
              Reader reader = response.body()
                      .charStream()) {
+            if(response.code() == 401){return null;};
             char[] array = new char[8 * 1024];
             StringBuilder buffer = new StringBuilder();
             while (reader.read(array, 0, array.length) != -1) {

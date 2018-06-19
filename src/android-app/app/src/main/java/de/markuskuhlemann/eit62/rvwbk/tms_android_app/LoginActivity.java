@@ -34,6 +34,7 @@ import java.util.List;
 
 
 import de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient.ApiClient;
+import de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient.Model.AuthDataReturn;
 import de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient.Model.User;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -63,6 +64,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
+    private EditText mEmailRegister;
+    private EditText mPasswordRegister;
+    private EditText mPasswordConfirmRegister;
     private View mProgressView;
     private View mLoginFormView;
 
@@ -74,26 +78,34 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
 
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView = (EditText) findViewById(R.id.passwordlogin);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
+                    attemptLogin(true);
                     return true;
                 }
                 return false;
             }
         });
-
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        mEmailRegister = (EditText) findViewById(R.id.emailregister);
+        mPasswordRegister = (EditText) findViewById(R.id.passwordcreate);
+        mPasswordConfirmRegister = (EditText) findViewById(R.id.passwordcreateconfirm);
+        Button mEmailSignInButton = (Button) findViewById(R.id.sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                attemptLogin(true);
             }
         });
-
+        Button mEmailRegisterButton = (Button) findViewById(R.id.register_button);
+        mEmailRegisterButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                attemptLogin(false);
+            }
+        });
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
@@ -147,49 +159,45 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
-    private void attemptLogin() {
-        if (mAuthTask != null) {
-            return;
+    private void attemptLogin(boolean login) {
+        if(login) {
+            if (mAuthTask != null) {
+                return;
+            }
+
+            // Reset errors.
+            mEmailView.setError(null);
+            mPasswordView.setError(null);
+
+
+            // Store values at the time of the login attempt.
+            String email = mEmailView.getText().toString();
+            String password = mPasswordView.getText().toString();
+
+            boolean cancel = false;
+            View focusView = null;
+            if(email.isEmpty()|| password.isEmpty()){
+                cancel= true;
+            }
+            // Check for a valid password, if the user entered one.
+
+
+            if (cancel) {
+                // There was an error; don't attempt login and focus the first
+                // form field with an error.
+                focusView.requestFocus();
+            } else {
+                // Show a progress spinner, and kick off a background task to
+                // perform the user login attempt.
+                showProgress(true);
+                mAuthTask = new UserLoginTask(email, password,login);
+                mAuthTask.execute((Void) null);
+            }
         }
-
-        // Reset errors.
-        mEmailView.setError(null);
-        mPasswordView.setError(null);
-
-        // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
-
-        boolean cancel = false;
-        View focusView = null;
-
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-           // cancel = true;
-        }
-
-        // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
-          //  cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
-           // cancel = true;
-        }
-
-        if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
-            focusView.requestFocus();
-        } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
+        else{
+            String email = mEmailRegister.getText().toString();
+            String password = mPasswordRegister.getText().toString();
+            mAuthTask = new UserLoginTask(email,password,false);
             mAuthTask.execute((Void) null);
         }
     }
@@ -302,44 +310,41 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         private final String mEmail;
         private final String mPassword;
-
-        UserLoginTask(String email, String password) {
+        private final Boolean mLogin;
+        UserLoginTask(String email, String password, boolean login) {
             mEmail = email;
             mPassword = password;
+            mLogin = login;
         }
 
         @Override
         protected Boolean doInBackground(Void... params) {
-
-
+            if(mLogin){
            try {
                ApiClient client = ApiClient.GetApiClient();
-                User user = null;
-                client.GetUserNew();
-               //User user = client,.loginUser(mEmail,mPassword.toCharArray());
-                if(user!=null)
-                {
-
+               AuthDataReturn user = client.loginUser(mEmail,mPassword);
+                if(user!=null){
+                    //TODO: HIER ZUR OBERFLÄCHE WECHSELN
+                    
 
                 }
-                else{
-                  //  client.createUser(mEmail,mPassword.toCharArray());
-                }
-                // Simulate network access.
-             //   io.swagger.client.api.AuthApi api = new AuthApi();
-              //  AuthApi authApi = new AuthApi();
-              //  Authdata data = new Authdata();
-               // data.setPassword(mPassword);
-               // data.setUsername(mEmail);
 
-
-                //InlineResponse200 response200 = authApi.authLoginPost(data);
-                //AuthHandler.getInstance().setAuthData(response200);
-                // TODO: Überleiten zur HauptOberfläche
 
            }
            catch (Error err){
 
+           }
+           }
+           else{
+               try{
+                   //Regestrieren
+                   ApiClient client = ApiClient.GetApiClient();
+                   User user = client.createUser(mEmail,mPassword);
+               }
+               catch(Error err){
+
+
+               }
            }
 
 

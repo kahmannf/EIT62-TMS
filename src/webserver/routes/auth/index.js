@@ -45,6 +45,7 @@ router.post('/login', (req, res) => {
 
 // middleware for registering a user
 router.post('/register', (req, res) => {
+  console.dir(req.body);
   if (req.body.data && req.body.data.Username && req.body.data.Password) {
 
     auth.registerUser(req.body.data.Username, req.body.data.Password)

@@ -25,4 +25,7 @@
     <string name="activity_create_project_AcceptanceCriteria">Akzeptanzkriterien</string>
     <string name="Status">Status</string>
     <string name="ProjectName">Projekt Name</string>
+    <string name="confirmpassword">confirm Password</string>
+    <string name="signin">Regestrieren</string>
+    <string name="login">Anmelden</string>
 </resources>
