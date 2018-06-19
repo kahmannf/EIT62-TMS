@@ -58,10 +58,18 @@ public class TicketListViewAdapter extends BaseAdapter
             lvItemWidgetWrapper.setTxtvTicketListViewLayoutCreateDate((TextView) currentView.findViewById(R.id.txtvTicketListViewLayoutCreateDate));
             lvItemWidgetWrapper.setTxtvTicketListViewLayoutNote((TextView) currentView.findViewById(R.id.txtvTicketListViewLayoutNote));
 
-            //TODO
+
             //Befülle der einzelnen Widgets
+
+            //Beispiel aus Notiz APP
             //lvItemWidgetWrapper.getTxtvFileName().setText(noteBean.getClearFileName());
             //lvItemWidgetWrapper.getTxtvStatusOfImportance().setText(noteBean.getStatusOfImportance());
+
+            //ToDO
+            //Unsere Controls
+            //lvItemWidgetWrapper.getTxtvTicketListViewLayoutUser().setText(BENUTZER);
+            //lvItemWidgetWrapper.getTxtvTicketListViewLayoutCreateDate().setText(ERSTELLUNGS DATUM);
+            //lvItemWidgetWrapper.getTxtvTicketListViewLayoutNote().setText(NOTIZ SELBST);
 
             currentView.setTag(lvItemWidgetWrapper);
         }
