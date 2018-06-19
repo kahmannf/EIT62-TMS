@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +29,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,7 @@ import java.util.List;
 
 import de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient.ApiClient;
 import de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient.Model.AuthDataReturn;
+import de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient.Model.Message;
 import de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient.Model.User;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -325,7 +328,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                AuthDataReturn user = client.loginUser(mEmail,mPassword);
                 if(user!=null){
                     //TODO: HIER ZUR OBERFLÄCHE WECHSELN
-                    
+
 
                 }
 
@@ -338,8 +341,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
            else{
                try{
                    //Regestrieren
+                   Looper.prepare();
                    ApiClient client = ApiClient.GetApiClient();
-                   User user = client.createUser(mEmail,mPassword);
+                   Message response = client.createUser(mEmail,mPassword);
+                   if(response != null){
+                   Toast toast = Toast.makeText(getApplicationContext(),response.GetText(),Toast.LENGTH_LONG);
+                   toast.show();
+                   }
                }
                catch(Error err){
 

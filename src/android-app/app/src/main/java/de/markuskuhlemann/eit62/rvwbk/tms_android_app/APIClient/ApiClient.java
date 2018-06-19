@@ -1,9 +1,11 @@
 package de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient;
 
 import de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient.Model.AuthDataReturn;
+import de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient.Model.Message;
 import de.markuskuhlemann.eit62.rvwbk.tms_android_app.APIClient.Model.User;
 
 import android.support.annotation.Nullable;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -25,7 +27,7 @@ import java.net.URL;
 public class ApiClient {
 
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-    private static final String BASE_URL = "http://192.168.64.60:8000";
+    private static final String BASE_URL = "http://192.168.178.35:8000";
 
     private static ApiClient client;
     public static ApiClient GetApiClient()
@@ -57,15 +59,15 @@ public class ApiClient {
         }
         return loggedInUser;
     }
-    public User createUser(String username, String password)
+    public Message createUser(String username, String password)
     {
 
         String json = "{ \"data\": { \"Username\": \"" + username + "\", \"Password\": \"" + password + "\"}}";
-        String user = getJson(Endpoints.REGISTER, json);
-        User loggedInUser = null;
-        if (user != null) {
+        String response = getJson(Endpoints.REGISTER, json);
 
-            loggedInUser = gson.fromJson(user, User.class);
+        if (response != null) {
+
+            return gson.fromJson(response, Message.class);
 
         }
         return null;
@@ -94,7 +96,16 @@ public class ApiClient {
                 .execute();
              Reader reader = response.body()
                      .charStream()) {
-            if(response.code() == 401){return null;};
+            if(response.code() == 401){return null;}
+            if(response.code() == 400){return null;}
+            if(response.code() == 202){
+                Message message = new Message();
+                message.SetText("erfolgreich regestriert");
+                Gson gson = new Gson();
+                return  gson.toJson(message);
+
+
+            }
             char[] array = new char[8 * 1024];
             StringBuilder buffer = new StringBuilder();
             while (reader.read(array, 0, array.length) != -1) {
@@ -113,41 +124,7 @@ public class ApiClient {
 
         return null;
     }
-    public User GetUserNew(){
-        try {
 
-            URL url = new URL("http://127.0.0.1:8080/dummy");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");
-
-            if (conn.getResponseCode() != 200) {
-                throw new RuntimeException("Failed : HTTP error code : "
-                        + conn.getResponseCode());
-            }
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    (conn.getInputStream())));
-
-            String output;
-            System.out.println("Output from Server .... \n");
-            while ((output = br.readLine()) != null) {
-                System.out.println(output);
-            }
-
-            conn.disconnect();
-
-        } catch (MalformedURLException e) {
-
-            e.printStackTrace();
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-
-        }
-    return null;
-    }
 
     public enum Endpoints {
         LOGIN("/auth/login"),
