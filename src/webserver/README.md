@@ -15,6 +15,8 @@ Erwartete npm Version: `6.1.0`
 npm i
 ```
 
+Die Datei ´template.env´ kopieren und die Kopie in `.env` umbenennen. Unter Umständen die Werte in der `.env` anpassen.
+
 ### Zum starten:
 ```bash
 npm start
